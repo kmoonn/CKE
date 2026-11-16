@@ -26,3 +26,17 @@ Controllable Knowledge Editing for LLM Content Safety
 
 ### FT Methods
 
+## Experiments
+
+### Models
+
+- llama-2-7b-chat
+- qwen-7b
+- gpt-j-6B
+
+### KEs
+
+- ROME
+- AlphaEdit
+- MEMIT
+- CKU
