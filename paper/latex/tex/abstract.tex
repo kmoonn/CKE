@@ -3,32 +3,29 @@
 %%==============================================================================
 
 \begin{cabstract}
-以大语言模型（Large Language Models, LLMs）为代表的生成式人工智能广泛部署，其生成内容的安全性问题日益突出。知识编辑通过定点修改模型参数实现有害知识的精准擦除，为内容安全治理提供了轻量且高效的新手段；然而，安全编辑在后续微调中会显著衰减，且现有方法以统一强度实施编辑，可靠性与可控性的双重缺陷制约了其实际应用。针对上述问题，本文围绕基于可控知识编辑的大语言模型生成内容安全开展研究，主要工作包括三个方面。
+大语言模型在多类应用中得到广泛使用，其生成内容的安全性与模型能力保持已成为重要问题。参数级知识编辑通过对模型局部参数进行干预，能够在不进行全量重训练的情况下改变特定知识或行为，为模型发布后的安全维护提供了轻量途径。然而，编辑结果可能受到后续微调影响；同时，不同风险类别和等级对模型行为的要求并不相同，统一编辑容易造成安全防护不足或正常请求过度拒答。针对这些问题，本文围绕安全知识编辑的微调鲁棒性、多类别风险控制及其系统应用开展研究。
 
-（1）针对安全编辑在微调后失效且缺乏防御机制的问题，提出面向微调鲁棒性的可持久性安全编辑机制。建立覆盖良性微调与恶意微调的双威胁模型，实证刻画安全编辑的微调衰减现象，并通过正交补投影干预实验验证梯度投影衰减机理；在此基础上设计基于梯度正交约束的预加固编辑方法，以三重损失在编辑阶段建立对后续微调梯度的抵抗力，形成软锚定、硬锚定与预加固的方法谱系，并提出攻击回潮率、护栏完整度与新知识学习率三项评估指标。
+（1）针对编辑结果在后续微调中可能衰减的问题，研究面向微调鲁棒性的双子空间约束安全知识编辑方法。分别依据安全编辑目标与正常任务样本构建安全子空间和效用保护子空间，并将二者共同纳入参数更新约束；进一步对后续微调造成的参数扰动进行建模，通过鲁棒优化提升编辑在不同微调条件下的保持能力。研究将从安全编辑效果、微调后保持率、通用能力变化及编辑局部性等方面评价方法。
 
-（2）针对统一编辑强度导致安全效用失衡与多类别有害知识覆盖不足的问题，提出面向多类别有害知识的分级可控编辑框架。利用因果追踪技术探测多类别有害知识的层级分布图谱，为分级提供实证依据；设计基于风险感知的连续强度调度方法，实现低危内容方向性衰减与高危内容彻底阻断的差异化编辑，并与持久性机制结合形成分级锚定，同时提出分级编辑精度与级间泄漏两项评估指标。
+（2）针对多类别有害内容编辑中的类别干扰与风险处置粒度不足问题，研究面向多类别安全性的分级解耦与动态路由编辑方法。该方法按照风险类别和风险等级组织相对独立的编辑模块，通过解耦约束减轻联合编辑时的跨类别干扰，并依据输入内容的风险特征动态选择或组合相应模块，以实现差异化安全干预。研究将重点考察类别编辑效果、模块隔离能力、路由性能、正常请求效用及过度拒答情况。
 
-（3）为将前两项研究成果转化为可用的安全治理工具，设计并开发了可控知识编辑内容安全防御系统。集成知识编辑管理、分级策略配置、持久监控与安全评估四大功能模块，对前两项研究内容进行系统化封装，形成从方法研究到工程落地的完整闭环。
+（3）面向方法的工程应用，设计大语言模型生成内容安全增强系统，集成基础模型管理、鲁棒安全编辑、多类别安全编辑、风险感知动态路由及安全评估等功能，形成从编辑配置到效果评估的系统流程。
 
-% ⚠️ TODO（实验完成后必改）：下段的实验结论目前为预期性定性表述——
-%    E2–E7 数据出来后，务必替换为定量结果（如"编辑保持率从 X% 提升至 Y%"），
-%    确保摘要与正文实验数据完全一致（盲审硬性要求）。
-在SafeEdit等基准上的实验表明：所提可持久性安全编辑机制在良性微调与恶意微调后均保持显著更高的编辑保持率，且不损害模型的通用能力与新知识学习；分级可控编辑框架在维持高危内容近完全阻断的同时，显著降低了统一强度编辑引发的过度拒绝，实现了更优的安全效用平衡。本文的研究为参数级知识编辑在内容安全场景的可靠应用提供了方法支撑与工具系统。
+本文从编辑持久性和编辑粒度两个角度研究参数级安全知识编辑，并通过实验设计与系统实现考察方法的有效性、适用边界及工程可用性，为大语言模型内容安全的精细化维护提供参考。
 
-\ckeywords{大语言模型；生成内容安全；知识编辑}
+\ckeywords{大语言模型；生成内容安全；知识编辑；微调鲁棒性；动态路由}
 \end{cabstract}
 
 \begin{eabstract}
-With the widespread deployment of generative artificial intelligence represented by large language models (LLMs), the safety of generated content has become an increasingly prominent concern. Knowledge editing enables the precise erasure of harmful knowledge through targeted parameter modification, offering a lightweight and efficient approach to content safety governance. However, safety edits decay significantly under subsequent fine-tuning, and existing methods apply editing with uniform strength regardless of content risk levels. These deficiencies in reliability and controllability limit the practical application of knowledge editing in safety scenarios. This thesis investigates the safety of LLM-generated content based on controllable knowledge editing, with three main contributions.
+Large language models are widely used in a range of applications, making the safety of generated content and the preservation of model capabilities important concerns. Parameter-level knowledge editing intervenes in localized model parameters to change selected knowledge or behavior without full retraining, offering a lightweight approach to post-deployment safety maintenance. However, subsequent fine-tuning may weaken an edit. Moreover, different risk categories and levels call for different model behaviors, while uniform editing can either leave safety gaps or cause excessive refusals of benign requests. This thesis studies fine-tuning robustness, multi-category risk control, and system support for safety-oriented knowledge editing.
 
-(1) To address the problem that safety edits fail after subsequent fine-tuning and lack defense mechanisms, a persistent safety editing mechanism oriented to fine-tuning robustness is proposed. A dual-threat model covering both benign and malicious fine-tuning is established, the fine-tuning decay of safety edits is empirically characterized, and the gradient-projection decay mechanism is causally verified through orthogonal-complement intervention experiments. On this basis, a pre-hardened editing method with gradient orthogonality constraints is designed, which builds resistance to future fine-tuning gradients at the editing stage via a triple loss, forming a method spectrum of soft anchoring, hard anchoring, and pre-hardening, together with three evaluation metrics: attack resurgence rate, guardrail integrity, and new-knowledge learning rate.
+(1) To address the potential decay of edits after subsequent fine-tuning, this thesis studies a dual-subspace-constrained safety editing method for fine-tuning robustness. A safety subspace is constructed from safety-editing objectives, and a utility-preservation subspace is constructed from benign task examples. Both subspaces are incorporated into parameter-update constraints. Perturbations caused by subsequent fine-tuning are further modeled, and robust optimization is used to improve edit retention under different fine-tuning conditions. The method is evaluated in terms of safety-editing effectiveness, post-fine-tuning retention, general capability changes, and edit locality.
 
-(2) To address the safety-utility imbalance caused by uniform-strength editing and the insufficient coverage of multi-category harmful knowledge, a graded controllable editing framework is proposed. Causal tracing is employed to probe the layer-wise distribution of harmful knowledge across categories, providing empirical grounding for grading. A risk-aware continuous-strength scheduling method is designed to achieve differentiated editing, namely directional attenuation for low-risk content and complete blocking for high-risk content, and graded anchoring is formed by integrating the persistence mechanism, along with two new metrics: grading precision and inter-level leakage.
+(2) To address cross-category interference and insufficient risk granularity in editing multiple types of harmful content, this thesis studies a graded, decoupled, and dynamically routed editing method for multi-category safety. Relatively independent editing modules are organized by risk category and level. Decoupling constraints are used to reduce interference during joint editing, while input risk features guide the dynamic selection or combination of modules for differentiated safety interventions. The evaluation focuses on category-level editing effectiveness, module isolation, routing performance, utility on benign requests, and over-refusal.
 
-(3) To translate the first two contributions into practical safety governance tooling, a controllable knowledge editing content safety defense system is designed and developed. It integrates four functional modules of editing management, grading configuration, persistence monitoring, and safety evaluation, systematically packaging the first two contributions and forming a complete loop from methodology to engineering deployment.
+(3) To support practical use, a safety-enhancement system for LLM-generated content is designed. It integrates base-model management, robust safety editing, multi-category editing, risk-aware dynamic routing, and safety evaluation into a workflow from edit configuration to outcome assessment.
 
-Experiments on the SafeEdit benchmark show that the proposed persistent editing mechanism maintains substantially higher edit retention after both benign and malicious fine-tuning without degrading general capabilities or new-knowledge learning, and the graded controllable editing framework maintains near-complete blocking of high-risk content while significantly reducing the over-refusal induced by uniform-strength editing, achieving a superior safety-utility balance. This thesis provides methodological support and practical tooling for the reliable application of parameter-level knowledge editing in content safety scenarios.
+By addressing edit persistence and editing granularity, this thesis investigates parameter-level safety knowledge editing and examines its effectiveness, applicability, and engineering feasibility through an experimental design and system implementation. The work provides a reference for fine-grained maintenance of LLM content safety.
 
-\ekeywords{Large Language Model; Generated Content Safety; Knowledge Editing}
+\ekeywords{Large Language Models; Generated Content Safety; Knowledge Editing; Fine-Tuning Robustness; Dynamic Routing}
 \end{eabstract}
