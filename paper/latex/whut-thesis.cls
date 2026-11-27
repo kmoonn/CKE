@@ -255,6 +255,8 @@
 %%------------------------------------------------------------------------------
 %% 10. 封面
 %%------------------------------------------------------------------------------
+% 2025 新形式封面左侧字段：首字与冒号分别对齐，中间字距均分
+\newcommand{\whut@newcoverlabel}[1]{\makebox[7em][s]{#1：}}
 \newcommand{\makecover}{%
   \begin{titlepage}
   \pagestyle{empty}
@@ -272,12 +274,12 @@
     \vspace{2.4cm}
     {\zihao{4}\songti
       \begin{tabular}{@{}l@{\hspace{0.5em}}l@{}}
-        培\ 养\ 单\ 位： & \whut@cdepartment \\[10pt]
-        专业学位类别： & \whut@degreecategory \\[10pt]
-        专\ 业\ 领\ 域： & \whut@cfieldarea \\[10pt]
-        论\ 文\ 作\ 者： & \ifwhut@anonymous\makebox[4em]{}\else\whut@cauthor\fi \\[10pt]
-        指\ 导\ 教\ 师： & \ifwhut@anonymous\makebox[4em]{}\else\whut@cadvisor\quad\whut@advisortitle\fi \\[10pt]
-        副指导教师： & \ifwhut@anonymous\makebox[4em]{}\else\whut@csubadvisor\fi \\
+        \whut@newcoverlabel{培\hfil{}养\hfil{}单\hfil{}位} & \whut@cdepartment \\[10pt]
+        \whut@newcoverlabel{专\hfil{}业\hfil{}学\hfil{}位\hfil{}类\hfil{}别} & \whut@degreecategory \\[10pt]
+        \whut@newcoverlabel{专\hfil{}业\hfil{}领\hfil{}域} & \whut@cfieldarea \\[10pt]
+        \whut@newcoverlabel{论\hfil{}文\hfil{}作\hfil{}者} & \ifwhut@anonymous\makebox[4em]{}\else\whut@cauthor\fi \\[10pt]
+        \whut@newcoverlabel{指\hfil{}导\hfil{}教\hfil{}师} & \ifwhut@anonymous\makebox[4em]{}\else\whut@cadvisor\quad\whut@advisortitle\fi \\[10pt]
+        \whut@newcoverlabel{副\hfil{}指\hfil{}导\hfil{}教\hfil{}师} & \ifwhut@anonymous\makebox[4em]{}\else\whut@csubadvisor\quad\whut@subadvisortitle\fi \\
       \end{tabular}\par}
   \else
     %% ===== 2024 版：学术学位（博士/硕士）与专业硕士 =====
@@ -323,13 +325,10 @@
   \noindent
   #1\,\whut@blank{\dimexpr0.5\textwidth-\whut@lwi\relax}{#2}%
   #3\,\whut@blank{\dimexpr0.5\textwidth-\whut@lwii\relax}{#4}\whut@frowsep}
-% 导师块：左标签纵向居中，右侧两行子字段
+% 导师块：标签与姓名同列起行，单位和邮编在下一行对齐
 \newcommand{\whut@advrow}[3]{%
-  \noindent
-  \makebox[5.5em][l]{\raisebox{-1.0em}[0pt][0pt]{#1}}%
-  \begin{minipage}[t]{\dimexpr\textwidth-5.5em\relax}
-    #2\par\vspace{0.65em}#3
-  \end{minipage}\whut@frowsep}
+  \noindent\makebox[5.5em][l]{#1}#2\whut@frowsep
+  \noindent\hspace*{5.5em}#3\whut@frowsep}
 
 \newcommand{\maketitlepage}{%
   \cleardoublepage
@@ -359,13 +358,13 @@
   % 英文题目：可换行，逐行下划线（先展开宏，使 ulem 能在词间断行）
   \whut@frowtop{英文题目}{\expandafter\uline\expandafter{\whut@etitle}}%
   \whut@frow{论文作者}{\ifwhut@anonymous\else\whut@cauthor\fi}%
-  % 指导教师：左标签纵向居中，右侧两行
+  % 指导教师：姓名、职称、学位在首行；单位、邮编在次行
   \whut@advrow{指导教师}%
-    {\ifwhut@anonymous\else 姓名\,\whut@blank{6em}{\whut@cadvisor}职称\,\whut@blank{4em}{\whut@advisortitle}学位\,\whut@blank{4em}{\whut@advisordegree}\fi}%
-    {单位名称\,\whut@blank{9em}{\whut@advisordept}邮编\,\whut@blank{5em}{\whut@advisorzip}}%
+    {\ifwhut@anonymous\else 姓名\,\whut@blank{6em}{\whut@cadvisor}\quad 职称\,\whut@blank{7em}{\whut@advisortitle}\quad 学位\,\whut@blank{4em}{\whut@advisordegree}\fi}%
+    {单位\,\whut@blank{14em}{\whut@advisordept}\quad 邮编\,\whut@blank{5em}{\whut@advisorzip}}%
   \whut@advrow{副指导教师}%
-    {姓名\,\whut@blank{6em}{\ifwhut@anonymous\else\whut@csubadvisor\fi}职称\,\whut@blank{4em}{\whut@subadvisortitle}学位\,\whut@blank{4em}{\whut@subadvisordegree}}%
-    {单位名称\,\whut@blank{9em}{\whut@subadvisordept}邮编\,\whut@blank{5em}{\whut@subadvisorzip}}%
+    {姓名\,\whut@blank{6em}{\ifwhut@anonymous\else\whut@csubadvisor\fi}\quad 职称\,\whut@blank{7em}{\whut@subadvisortitle}\quad 学位\,\whut@blank{4em}{\whut@subadvisordegree}}%
+    {单位\,\whut@blank{14em}{\whut@subadvisordept}\quad 邮编\,\whut@blank{5em}{\whut@subadvisorzip}}%
   \whut@frowtwo{申请学位级别}{\whut@degree}{学科专业名称}{\whut@cmajor}%
   \whut@frowtwo{论文提交日期}{\whut@submitdate}{论文答辩日期}{\whut@defenddate}%
   \whut@frowtwo{学位授予单位}{\whut@cuniversity}{学位授予日期}{}%
