@@ -8,7 +8,7 @@
 %%
 %% 注：2025 新形式与 2024 版的排版格式完全相同，仅封面/字段措辞不同。
 %%
-%% 编译：latexmk -xelatex main-2025-newform.tex   或   make V=2025
+%% 编译：latexmk -xelatex main-2025-newform.tex   或   make
 %%==============================================================================
 \documentclass[newform,fontset=windows]{whut-thesis}
 
@@ -17,11 +17,14 @@
 \begin{document}
 
 %% ---------------- 前置 ----------------
+% 封面、题名页和声明无页码，关闭这些页面的 PDF 跳转目标。
+\hypersetup{pageanchor=false}
 \makecover
 \maketitlepage
 \makedeclaration
 
 \frontmatter
+\hypersetup{pageanchor=true}
 \input{tex/abstract}
 \tableofcontents
 

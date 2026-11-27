@@ -1,58 +1,7 @@
 %%==============================================================================
-%% 参考文献数据库（示例，GB/T 7714 数字制）
-%% 以下为各类文献类型的占位示例，请替换为自己的参考文献。
+%% 参考文献数据库（GB/T 7714 数字制）
 %% 中文文献建议加 language = {chinese}。
 %%==============================================================================
-
-@article{ref-journal,
-  author   = {张三 and 李四},
-  title    = {示例期刊论文标题},
-  journal  = {示例学报},
-  year     = {2020},
-  volume   = {35},
-  number   = {2},
-  pages    = {1--10},
-  language = {chinese},
-}
-
-@book{ref-book,
-  author    = {王五},
-  title     = {示例专著标题},
-  edition   = {2},
-  publisher = {示例出版社},
-  address   = {北京},
-  year      = {2019},
-  language  = {chinese},
-}
-
-@phdthesis{ref-thesis,
-  author   = {赵六},
-  title    = {示例学位论文标题},
-  school   = {武汉理工大学},
-  address  = {武汉},
-  year     = {2021},
-  language = {chinese},
-}
-
-@inproceedings{ref-conf,
-  author    = {孙七 and 周八},
-  title     = {示例会议论文标题},
-  booktitle = {示例学术会议论文集},
-  address   = {上海},
-  year      = {2022},
-  pages     = {100--105},
-  language  = {chinese},
-}
-
-@article{ref-en,
-  author  = {Smith, John and Doe, Jane},
-  title   = {An example journal article for the bibliography},
-  journal = {Journal of Examples},
-  year    = {2021},
-  volume  = {12},
-  number  = {3},
-  pages   = {200--210},
-}
 
 %%==============================================================================
 %% 知识编辑基础
@@ -169,6 +118,7 @@
   title     = {{AlphaEdit}: Null-space constrained knowledge editing for language models},
   booktitle = {International Conference on Learning Representations},
   year      = {2025},
+  url       = {https://arxiv.org/abs/2410.02355},
 }
 
 @inproceedings{wang2024easyedit,
@@ -196,6 +146,8 @@
   title   = {Retention analysis of edited knowledge after fine-tuning},
   journal = {arXiv preprint arXiv:2507.14198},
   year    = {2025},
+  doi     = {10.48550/arXiv.2507.14198},
+  url     = {https://arxiv.org/abs/2507.14198},
 }
 
 @inproceedings{wang2025ilu,
@@ -220,6 +172,7 @@
   title   = {Tamper-resistant safeguards for open-weight {LLM}s},
   journal = {arXiv preprint arXiv:2408.00761},
   year    = {2024},
+  url     = {https://arxiv.org/abs/2408.00761},
 }
 
 @inproceedings{youssef2025position,
@@ -286,6 +239,7 @@
   title     = {Detoxifying large language models via knowledge editing},
   booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics},
   year      = {2024},
+  url       = {https://arxiv.org/abs/2403.14472},
 }
 
 @inproceedings{lu2025toxedit,
@@ -293,6 +247,9 @@
   title     = {Adaptive detoxification: Safeguarding general capabilities of {LLM}s through toxicity-aware knowledge editing},
   booktitle = {Findings of the Association for Computational Linguistics: ACL 2025},
   year      = {2025},
+  pages     = {19744--19758},
+  doi       = {10.18653/v1/2025.findings-acl.1013},
+  url       = {https://aclanthology.org/2025.findings-acl.1013/},
 }
 
 @inproceedings{wang2025delman,
@@ -331,7 +288,7 @@
 }
 
 @article{li2026fdcu,
-  author  = {Li, Jiaqing and Li, Yuxi and Zhang, Zhibo and Yu, Tianlong and Zhou, Shide and Wang, Kailong},
+  author  = {Li, Jiaqing and Zhou, Shide and Zhang, Zhibo and Li, Yuxi and Yu, Tianlong and Wang, Kailong},
   title   = {Faithful dual-constrained erasure for robust {LLM} safety alignment},
   journal = {arXiv preprint arXiv:2609.39279},
   year    = {2026},
@@ -384,4 +341,272 @@
   number   = {5},
   pages    = {1143--1155},
   language = {chinese},
+  doi      = {10.7544/issn1000-1239.202330965},
+  url      = {https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.202330965.pdf},
+}
+
+%% 本次修订补充；arXiv预印本，正式出版信息待定稿时复核。
+@article{zhang2026spf,
+  author = {Zhang, Jiawen and Hu, Yangfan and Chen, Kejia and He, Lipeng and Ma, Jiachen and Lou, Jian and Li, Dan and Liu, Jian and Yang, Xiaohu and Jia, Ruoxi},
+  title = {Understanding and Preserving Safety in Fine-Tuned {LLM}s},
+  journal = {arXiv preprint arXiv:2601.10141},
+  year = {2026},
+  doi = {10.48550/arXiv.2601.10141},
+  url = {https://arxiv.org/abs/2601.10141},
+}
+
+%% 国内安全评估与知识编辑
+
+@article{jiang2025llmsafety,
+  author   = {姜毅 and 杨勇 and 印佳丽 and 刘小磊 and 李吉亮 and 王伟 and 田有亮 and 巫英才 and 纪守领},
+  title    = {大语言模型安全与隐私风险综述},
+  journal  = {计算机研究与发展},
+  year     = {2025},
+  volume   = {62},
+  number   = {8},
+  pages    = {1979--2018},
+  language = {chinese},
+  doi      = {10.7544/issn1000-1239.202440265},
+  url      = {https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.202440265.pdf},
+}
+
+@article{zhang2024jadedb,
+  author   = {张谧 and 潘旭东 and 杨珉},
+  title    = {{JADE-DB}：基于靶向变异的大语言模型安全通用基准测试集},
+  journal  = {计算机研究与发展},
+  year     = {2024},
+  volume   = {61},
+  number   = {5},
+  pages    = {1113--1127},
+  language = {chinese},
+  doi      = {10.7544/issn1000-1239.202330959},
+  url      = {https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.202330959.pdf},
+}
+
+@article{yang2025m3safety,
+  author   = {杨伟平 and 程豪杰 and 周百顺 and 文煜鑫 and 刘雨帆 and 刘宇阳 and 李兵 and 郎丛妍 and 陈乃月 and 张伟 and 胡卫明},
+  title    = {{M3-SafetyBench}：多领域多场景多维度的大语言模型安全评估体系},
+  journal  = {中国科学：信息科学},
+  year     = {2025},
+  volume   = {55},
+  number   = {11},
+  pages    = {2923--2940},
+  language = {chinese},
+  doi      = {10.1360/SSI-2025-0254},
+  url      = {https://scis.scichina.com/cn/2025/SSI-2025-0254.pdf},
+}
+
+@inproceedings{wu2025land,
+  author    = {吴钰璋 and 穆永誉 and 王成龙 and 何乔至 and 肖桐 and 马安香 and 张春良 and 朱靖波},
+  title     = {基于关联神经元识别的知识编辑方法},
+  booktitle = {第二十四届中国计算语言学大会论文集},
+  address   = {济南},
+  publisher = {中国中文信息学会},
+  year      = {2025},
+  pages     = {733--744},
+  language  = {chinese},
+  url       = {https://aclanthology.org/2025.ccl-1.55/},
+}
+
+%% 微调安全、编辑效用与基座模型
+
+@inproceedings{hsu2024safelora,
+  author    = {Hsu, Chia-Yi and Tsai, Yu-Lin and Lin, Chih-Hsun and Chen, Pin-Yu and Yu, Chia-Mu and Huang, Chun-Ying},
+  title     = {Safe {LoRA}: The Silver Lining of Reducing Safety Risks when Finetuning Large Language Models},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {37},
+  year      = {2024},
+  doi       = {10.52202/079017-2078},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/77baa7c2a3a675823e89131698fd6e19-Abstract-Conference.html},
+}
+
+@inproceedings{lu2025safedelta,
+  author    = {Lu, Ning and Liu, Shengcai and Wu, Jiahao and Chen, Weiyu and Zhang, Zhirui and Ong, Yew-Soon and Wang, Qi and Tang, Ke},
+  title     = {Safe Delta: Consistently Preserving Safety when Fine-Tuning {LLM}s on Diverse Datasets},
+  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},
+  volume    = {267},
+  pages     = {40537--40559},
+  year      = {2025},
+  url       = {https://proceedings.mlr.press/v267/lu25g.html},
+}
+
+@inproceedings{ponkshe2026safetysubspaces,
+  author    = {Ponkshe, Kaustubh and Shah, Shaan and Singhal, Raghav and Vepakomma, Praneeth},
+  title     = {Safety Subspaces are Not Linearly Distinct: A Fine-Tuning Case Study},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2026},
+  url       = {https://proceedings.iclr.cc/paper_files/paper/2026/hash/9a9f4e15ad0d680429a3e0570a96f763-Abstract-Conference.html},
+}
+
+@inproceedings{gu2024editutility,
+  author    = {Gu, Jia-Chen and Xu, Hao-Xiang and Ma, Jun-Yu and Lu, Pan and Ling, Zhen-Hua and Chang, Kai-Wei and Peng, Nanyun},
+  title     = {Model Editing Harms General Abilities of Large Language Models: Regularization to the Rescue},
+  booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2024},
+  pages     = {16801--16819},
+  doi       = {10.18653/v1/2024.emnlp-main.934},
+  url       = {https://aclanthology.org/2024.emnlp-main.934/},
+}
+
+@article{touvron2023llama2,
+  author  = {Touvron, Hugo and Martin, Louis and Stone, Kevin and others},
+  title   = {{Llama 2}: Open Foundation and Fine-Tuned Chat Models},
+  journal = {arXiv preprint arXiv:2307.09288},
+  year    = {2023},
+  doi     = {10.48550/arXiv.2307.09288},
+  url     = {https://arxiv.org/abs/2307.09288},
+}
+
+%% 连续编辑、局部性与动态干预
+
+@inproceedings{gupta2024forgetting,
+  author    = {Gupta, Akshat and Rao, Anurag and Anumanchipalli, Gopala},
+  title     = {Model Editing at Scale leads to Gradual and Catastrophic Forgetting},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  year      = {2024},
+  pages     = {15202--15232},
+  doi       = {10.18653/v1/2024.findings-acl.902},
+  url       = {https://aclanthology.org/2024.findings-acl.902/},
+}
+
+@article{cohen2024ripple,
+  author  = {Cohen, Roi and Biran, Eden and Yoran, Ori and Globerson, Amir and Geva, Mor},
+  title   = {Evaluating the Ripple Effects of Knowledge Editing in Language Models},
+  journal = {Transactions of the Association for Computational Linguistics},
+  volume  = {12},
+  pages   = {283--298},
+  year    = {2024},
+  doi     = {10.1162/tacl_a_00644},
+  url     = {https://aclanthology.org/2024.tacl-1.16/},
+}
+
+@inproceedings{xu2025kde,
+  author    = {Xu, Haoyu and Lan, Pengxiang and Yang, Enneng and Guo, Guibing and Zhao, Jianzhe and Jiang, Linying and Wang, Xingwei},
+  title     = {Knowledge Decoupling via Orthogonal Projection for Lifelong Editing of Large Language Models},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  year      = {2025},
+  pages     = {13194--13213},
+  doi       = {10.18653/v1/2025.acl-long.646},
+  url       = {https://aclanthology.org/2025.acl-long.646/},
+}
+
+@inproceedings{wang2024wise,
+  author    = {Wang, Peng and Li, Zexi and Zhang, Ningyu and Xu, Ziwen and Yao, Yunzhi and Jiang, Yong and Xie, Pengjun and Huang, Fei and Chen, Huajun},
+  title     = {{WISE}: Rethinking the Knowledge Memory for Lifelong Model Editing of Large Language Models},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {37},
+  year      = {2024},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/60960ad78868fce5c165295fbd895060-Abstract-Conference.html},
+}
+
+@inproceedings{han2025safeswitch,
+  author    = {Han, Peixuan and Qian, Cheng and Chen, Xiusi and Zhang, Yuji and Ji, Heng and Zhang, Denghui},
+  title     = {{SafeSwitch}: Steering Unsafe {LLM} Behavior via Internal Activation Signals},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
+  year      = {2025},
+  pages     = {6936--6955},
+  doi       = {10.18653/v1/2025.findings-emnlp.366},
+  url       = {https://aclanthology.org/2025.findings-emnlp.366/},
+}
+
+%% 风险分类、拒答与生成安全评估
+
+@inproceedings{rottger2024xstest,
+  author    = {R{\"o}ttger, Paul and Kirk, Hannah and Vidgen, Bertie and Attanasio, Giuseppe and Bianchi, Federico and Hovy, Dirk},
+  title     = {{XSTest}: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models},
+  booktitle = {Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},
+  year      = {2024},
+  pages     = {5377--5400},
+  doi       = {10.18653/v1/2024.naacl-long.301},
+  url       = {https://aclanthology.org/2024.naacl-long.301/},
+}
+
+@inproceedings{cui2025orbench,
+  author    = {Cui, Justin and Chiang, Wei-Lin and Stoica, Ion and Hsieh, Cho-Jui},
+  title     = {{OR-Bench}: An Over-Refusal Benchmark for Large Language Models},
+  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},
+  year      = {2025},
+  volume    = {267},
+  pages     = {11515--11542},
+  url       = {https://proceedings.mlr.press/v267/cui25a.html},
+}
+
+@inproceedings{han2024wildguard,
+  author    = {Han, Seungju and Rao, Kavel and Ettinger, Allyson and Jiang, Liwei and Lin, Bill Yuchen and Lambert, Nathan and Choi, Yejin and Dziri, Nouha},
+  title     = {{WildGuard}: Open One-stop Moderation Tools for Safety Risks, Jailbreaks, and Refusals of {LLM}s},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2024},
+  volume    = {37},
+  doi       = {10.52202/079017-0261},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/0f69b4b96a46f284b726fbd70f74fb3b-Abstract.html},
+}
+
+@inproceedings{rastegar2026taxonomy,
+  author    = {Rastegar, Shadi and Hangya, Viktor and Kuech, Fabian and Gold, Darina},
+  title     = {A Taxonomy of Safety: Harmonizing {LLM} Benchmarks in a Fragmented Landscape},
+  booktitle = {Proceedings of the Fifteenth Language Resources and Evaluation Conference},
+  year      = {2026},
+  pages     = {4470--4481},
+  doi       = {10.63317/4n7jrxunmvcp},
+  url       = {https://aclanthology.org/2026.lrec-1.350/},
+}
+
+@inproceedings{shi2025criskeval,
+  author    = {Shi, Ling and Xiong, Deyi},
+  title     = {{CRiskEval}: A Chinese Multi-Level Risk Evaluation Benchmark Dataset for Large Language Models},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  year      = {2025},
+  pages     = {13638--13659},
+  doi       = {10.18653/v1/2025.acl-long.670},
+  url       = {https://aclanthology.org/2025.acl-long.670/},
+}
+
+@inproceedings{wang2024chineseguard,
+  author    = {Wang, Yuxia and Zhai, Zenan and Li, Haonan and Han, Xudong and Lin, Shom and Zhang, Zhenxuan and Zhao, Angela and Nakov, Preslav and Baldwin, Timothy},
+  title     = {A Chinese Dataset for Evaluating the Safeguards in Large Language Models},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  year      = {2024},
+  pages     = {3106--3119},
+  doi       = {10.18653/v1/2024.findings-acl.184},
+  url       = {https://aclanthology.org/2024.findings-acl.184/},
+}
+
+@inproceedings{zhang2024safetybench,
+  author    = {Zhang, Zhexin and Lei, Leqi and Wu, Lindong and Sun, Rui and Huang, Yongkang and Long, Chong and Liu, Xiao and Lei, Xuanyu and Tang, Jie and Huang, Minlie},
+  title     = {{SafetyBench}: Evaluating the Safety of Large Language Models},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  year      = {2024},
+  pages     = {15537--15553},
+  doi       = {10.18653/v1/2024.acl-long.830},
+  url       = {https://aclanthology.org/2024.acl-long.830/},
+}
+
+@inproceedings{xie2025sorrybench,
+  author    = {Xie, Tinghao and Qi, Xiangyu and Zeng, Yi and Huang, Yangsibo and Sehwag, Udari Madhushani and Huang, Kaixuan and He, Luxi and Wei, Boyi and Li, Dacheng and Sheng, Ying and Jia, Ruoxi and Li, Bo and Li, Kai and Chen, Danqi and Henderson, Peter and Mittal, Prateek},
+  title     = {{SORRY-Bench}: Systematically Evaluating Large Language Model Safety Refusal},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2025},
+  url       = {https://proceedings.iclr.cc/paper_files/paper/2025/file/9622163c87b67fd5a4a0ec3247cf356e-Paper-Conference.pdf},
+}
+
+@inproceedings{mazeika2024harmbench,
+  author    = {Mazeika, Mantas and Phan, Long and Yin, Xuwang and Zou, Andy and Wang, Zifan and Mu, Norman and Sakhaee, Elham and Li, Nathaniel and Basart, Steven and Li, Bo and Forsyth, David and Hendrycks, Dan},
+  title     = {{HarmBench}: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  year      = {2024},
+  volume    = {235},
+  pages     = {35181--35224},
+  url       = {https://proceedings.mlr.press/v235/mazeika24a.html},
+}
+
+%% 系统依赖
+
+@inproceedings{wolf2020transformers,
+  author    = {Wolf, Thomas and Debut, Lysandre and Sanh, Victor and others},
+  title     = {Transformers: State-of-the-Art Natural Language Processing},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations},
+  year      = {2020},
+  pages     = {38--45},
+  doi       = {10.18653/v1/2020.emnlp-demos.6},
+  url       = {https://aclanthology.org/2020.emnlp-demos.6/},
 }

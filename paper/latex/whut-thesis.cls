@@ -324,7 +324,8 @@
   \settowidth{\whut@lwi}{#1\,}\settowidth{\whut@lwii}{#3\,}%
   \noindent
   #1\,\whut@blank{\dimexpr0.5\textwidth-\whut@lwi\relax}{#2}%
-  #3\,\whut@blank{\dimexpr0.5\textwidth-\whut@lwii\relax}{#4}\whut@frowsep}
+  % 为两组之间的 xeCJK 字间距预留约四分之一字宽。
+  #3\,\whut@blank{\dimexpr0.5\textwidth-\whut@lwii-0.25em\relax}{#4}\whut@frowsep}
 % 导师块：标签与姓名同列起行，单位和邮编在下一行对齐
 \newcommand{\whut@advrow}[3]{%
   \noindent\makebox[5.5em][l]{#1}#2\whut@frowsep
